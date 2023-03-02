@@ -8,7 +8,9 @@ import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
-import { createBrowserHistory } from "@remix-run/router";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 const INGREDIENT_PRICEs = {
   salad: 0.5,
@@ -121,9 +123,8 @@ class BurgerBuilder extends Component {
     //     this.setState({ loading: false, purchasing: false });
     //   });
 
-    // this.props.history.push('/checkout')
-    const history = createBrowserHistory();
-    history.push("/checkout");
+    // this.props.history.push('/checkout') // v5
+    navigate("/checkout");
   };
 
   render() {
