@@ -10,7 +10,6 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
 
 const INGREDIENT_PRICEs = {
   salad: 0.5,
@@ -98,6 +97,7 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
+    const navigate = useNavigate();
     // alert("You continue!");
     // this.setState({ loading: true });
     // const order = {
@@ -124,6 +124,7 @@ class BurgerBuilder extends Component {
     //   });
 
     // this.props.history.push('/checkout') // v5
+
     navigate("/checkout");
   };
 
